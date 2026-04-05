@@ -1,0 +1,30 @@
+name: "Neo4j Search Strategy Comparison"
+description: "Compare Neo4j GraphRAG's retrieval strategies: vector, vector_cypher, hybrid, text2cypher"
+
+dataset:
+  name: sample_articles
+  path: data/sample
+  domain: general
+
+frameworks:
+  - name: neo4j
+    search_type: local
+    extra:
+      schema:
+        node_types: [Person, Organization, Location, Technology]
+        relationship_types: [WORKS_AT, LOCATED_IN, DEVELOPS, REGULATES]
+  - name: neo4j
+    search_type: vector_cypher
+  - name: neo4j
+    search_type: hybrid
+  - name: neo4j
+    search_type: text2cypher
+
+queries:
+  - "What are the main themes discussed across all documents?"
+  - "How are the key entities related to each other?"
+  - "Which organizations are working on AI safety?"
+  - "What is the relationship between renewable energy and economic policy?"
+
+llm:
+  model: gpt-5.4-mini

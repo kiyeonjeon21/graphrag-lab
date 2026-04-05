@@ -1,0 +1,27 @@
+name: "Cost Analysis"
+description: "Analyze indexing and query costs across frameworks and models"
+
+dataset:
+  name: sample_articles
+  path: data/sample
+  domain: general
+
+frameworks:
+  - name: microsoft
+    search_type: local
+  - name: lightrag
+  - name: nano
+  - name: fast
+
+queries:
+  - "What are the main themes discussed across all documents?"
+  - "Summarize the most important findings mentioned in the documents."
+
+cost_tracking:
+  enabled: true
+  track_indexing: true
+  track_query: true
+
+evaluation:
+  metrics: []
+  judge_model: null

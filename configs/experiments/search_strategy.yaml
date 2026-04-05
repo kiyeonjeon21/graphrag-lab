@@ -1,0 +1,24 @@
+name: "Search Strategy Comparison"
+description: "Compare local, global, drift, and lazy search on Microsoft GraphRAG"
+
+dataset:
+  name: sample_articles
+  path: data/sample
+  domain: general
+
+frameworks:
+  - name: microsoft
+    search_type: local
+  - name: microsoft
+    search_type: global
+  - name: microsoft
+    search_type: drift
+
+queries:
+  - "What are the main themes discussed across all documents?"
+  - "How are the key entities related to each other?"
+  - "Summarize the most important findings mentioned in the documents."
+  - "What are the contrasting viewpoints presented?"
+
+llm:
+  model: gpt-5.4-mini

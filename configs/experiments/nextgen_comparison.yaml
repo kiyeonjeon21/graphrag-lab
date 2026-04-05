@@ -1,0 +1,26 @@
+name: "Next-Gen GraphRAG Comparison"
+description: "Compare emerging 2025-2026 GraphRAG approaches: Cognee, Graphiti, RAG-Anything, HippoRAG, LinearRAG, PathRAG"
+
+dataset:
+  name: sample_articles
+  path: data/sample
+  domain: general
+
+frameworks:
+  - name: cognee
+  - name: graphiti
+  - name: raganything
+    search_type: hybrid
+  - name: hipporag
+  - name: linearrag
+  - name: pathrag
+    search_type: path
+
+queries:
+  - "What are the main themes discussed across all documents?"
+  - "How are the key entities related to each other?"
+  - "Summarize the most important findings mentioned in the documents."
+  - "Identify the causal relationships described in the text."
+
+llm:
+  model: gpt-5.4-mini

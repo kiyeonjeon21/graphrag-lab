@@ -1,0 +1,25 @@
+name: "Chunking Strategy Comparison"
+description: "Compare fixed vs semantic chunking with different chunk sizes"
+
+dataset:
+  name: sample_articles
+  path: data/sample
+  domain: general
+
+frameworks:
+  - name: microsoft
+    search_type: local
+
+queries:
+  - "What are the main themes discussed across all documents?"
+  - "How are the key entities related to each other?"
+
+sweep:
+  parameters:
+    chunking.strategy:
+      - fixed
+      - semantic
+    chunking.chunk_size:
+      - 600
+      - 1200
+      - 2400

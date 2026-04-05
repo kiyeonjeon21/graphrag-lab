@@ -1,0 +1,49 @@
+name: "Full Benchmark v3"
+description: "9 frameworks × 5 queries, gpt-5.4-mini generation + claude-haiku cross-model evaluation"
+
+dataset:
+  name: sample_articles
+  path: data/sample
+  domain: general
+
+frameworks:
+  - name: fast
+  - name: cognee
+  - name: microsoft
+    search_type: local
+  - name: neo4j
+    search_type: local
+  - name: graphiti
+  - name: lightrag
+    search_type: hybrid
+  - name: nano
+    search_type: local
+  - name: datastax
+    extra:
+      edges: [[keywords, keywords]]
+      strategy: eager
+  - name: raganything
+    search_type: hybrid
+
+queries:
+  - "What are the main themes discussed across all documents?"
+  - "How are AI, healthcare, and renewable energy connected based on the documents?"
+  - "What specific organizations and people are mentioned, and what roles do they play?"
+  - "What are the potential risks and challenges described in the documents?"
+  - "Compare and contrast the different technological approaches discussed."
+
+llm:
+  provider: openai
+  model: gpt-5.4-mini
+
+evaluation:
+  metrics:
+    - comprehensiveness
+    - diversity
+    - relevance
+    - faithfulness
+  judge_model:
+    provider: anthropic
+    model: claude-haiku-4-5-20251001
+    temperature: 0.0
+    max_tokens: 1024

@@ -1,0 +1,30 @@
+llm:
+  provider: openai
+  model: gpt-5.4-mini
+  temperature: 0.0
+  max_tokens: 4096
+
+chunking:
+  strategy: fixed
+  chunk_size: 1200
+  overlap: 100
+
+evaluation:
+  metrics:
+    - comprehensiveness
+    - diversity
+    - relevance
+    - faithfulness
+  judge_model:
+    provider: anthropic
+    model: claude-haiku-4-5-20251001
+    temperature: 0.0
+    max_tokens: 4096
+  num_eval_samples: 50
+
+cost_tracking:
+  enabled: true
+  track_indexing: true
+  track_query: true
+
+output_dir: results

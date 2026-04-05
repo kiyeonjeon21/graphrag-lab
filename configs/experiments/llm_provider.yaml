@@ -1,0 +1,24 @@
+name: "LLM Provider Comparison"
+description: "Compare OpenAI vs Anthropic models on fast-graphrag"
+
+dataset:
+  name: sample_articles
+  path: data/sample
+  domain: general
+
+frameworks:
+  - name: fast
+
+queries:
+  - "What are the main themes discussed across all documents?"
+  - "How are the key entities related to each other?"
+  - "Summarize the most important findings mentioned in the documents."
+
+sweep:
+  parameters:
+    llm.provider:
+      - openai
+      - anthropic
+    llm.model:
+      - gpt-5.4-mini
+      - claude-haiku-4-5-20251001

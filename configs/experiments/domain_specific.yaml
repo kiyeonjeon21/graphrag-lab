@@ -1,0 +1,22 @@
+name: "Domain-Specific Evaluation"
+description: "Evaluate GraphRAG on domain-specific datasets (legal, medical, financial)"
+
+dataset:
+  name: legal_contracts
+  path: data/raw/legal
+  domain: legal
+
+frameworks:
+  - name: microsoft
+    search_type: local
+  - name: lightrag
+
+queries:
+  - "What are the key termination clauses across all contracts?"
+  - "Summarize the indemnification provisions."
+  - "Which parties have the most obligations?"
+  - "What are the main liability limitations?"
+  - "Identify any non-compete or confidentiality clauses."
+
+llm:
+  model: gpt-4o

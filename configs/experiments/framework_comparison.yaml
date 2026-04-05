@@ -1,0 +1,28 @@
+name: "Framework Comparison"
+description: "Compare 5 implemented GraphRAG frameworks: Microsoft, LightRAG, nano-graphrag, fast-graphrag, Neo4j"
+
+dataset:
+  name: sample_articles
+  path: data/sample
+  domain: general
+
+frameworks:
+  - name: microsoft
+    search_type: local
+  - name: lightrag
+    search_type: hybrid
+  - name: nano
+    search_type: local
+  - name: fast
+  - name: neo4j
+    search_type: vector_cypher
+
+queries:
+  - "What are the main themes discussed across all documents?"
+  - "How are the key entities related to each other?"
+  - "Summarize the most important findings mentioned in the documents."
+  - "What are the contrasting viewpoints presented?"
+  - "Identify the causal relationships described in the text."
+
+llm:
+  model: gpt-5.4-mini

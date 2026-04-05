@@ -1,0 +1,34 @@
+name: "Zero-Cost Indexing Comparison"
+description: "Compare approaches that minimize or eliminate LLM indexing costs: LinearRAG (0 tokens), fast-graphrag (low cost), vs Microsoft GraphRAG (high cost)"
+
+dataset:
+  name: sample_articles
+  path: data/sample
+  domain: general
+
+frameworks:
+  - name: linearrag
+  - name: fast
+  - name: lightrag
+    search_type: hybrid
+  - name: microsoft
+    search_type: local
+
+queries:
+  - "What are the main themes discussed across all documents?"
+  - "How are the key entities related to each other?"
+  - "Summarize the most important findings mentioned in the documents."
+
+cost_tracking:
+  enabled: true
+  track_indexing: true
+  track_query: true
+
+evaluation:
+  metrics:
+    - comprehensiveness
+    - relevance
+    - faithfulness
+
+llm:
+  model: gpt-5.4-mini

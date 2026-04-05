@@ -1,0 +1,25 @@
+name: "Evaluation Test"
+description: "Test LLM-as-judge evaluation with 2 frameworks"
+
+dataset:
+  name: sample_articles
+  path: data/sample
+
+frameworks:
+  - name: fast
+  - name: lightrag
+    search_type: hybrid
+
+queries:
+  - "What are the main themes discussed across all documents?"
+
+evaluation:
+  metrics:
+    - comprehensiveness
+    - relevance
+  judge_model:
+    provider: openai
+    model: gpt-5.4-mini
+
+llm:
+  model: gpt-5.4-mini
